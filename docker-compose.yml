@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+
+  frontend:
+    container_name: frontend
+    build: ./packages/frontend
+    volumes:
+      - './packages/frontend:/app'
+      - /app/node_modules
+    command: npm start
+    ports:
+      - 3000:3000
+
+  backend:
+    container_name: backend
+    build: ./packages/backend
+    volumes:
+      - './packages/backend:/app'
+      - /app/node_modules
+    command: npm start
+    ports:
+      - 3001:3001
