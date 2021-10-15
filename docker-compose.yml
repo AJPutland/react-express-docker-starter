@@ -21,3 +21,12 @@ services:
     command: npm start
     ports:
       - 3001:3001
+
+  db:
+    image: mysql:latest
+    container_name: db
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - 3002:3306
